@@ -97,11 +97,11 @@ public class Application {
             System.out.println("Factorial of a negative number is undefined.");
             return 0;        
             }
+        
         System.out.print("\rCalculating factorial: 0%"); // Shows progress bar for 1
-        return factorialHelper(num, num);
-        //  long result = factorialHelper(n, n);
-        //System.out.print("\rCalculating factorial: 100%\n");
-        //return result;
+        long result = factorialHelper(n, n);
+        System.out.print("\rCalculating factorial: 100%fact\n");
+        return result;
     }
     
     private static long factorialHelper(int originalNum, int num) {
