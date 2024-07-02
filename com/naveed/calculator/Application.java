@@ -7,7 +7,7 @@ public class Application {
 	    Scanner scanner = new Scanner(System.in);
 
 	    while (true) {
-	        System.out.println("\nEnter operation (add, subtract, multiply, divide, pow, sqrt, log, log10, sin, cos, tan, factorial) or 'exit' to quit:");
+	        System.out.println("\nEnter operation (add, subtract, multiply, divide, pow, sqrt, log, log10, sin, cos, tan, factorial, permutation) or 'exit' to quit:");
 	        String operation = scanner.next();
 
 	        if (operation.equalsIgnoreCase("exit")) {
@@ -45,6 +45,9 @@ public class Application {
 	                case "pow":
 	                    System.out.println("Result: " + power(num1, num2));
 	                    break;
+	                case "permutation":
+	                	System.out.println("Result: " + permutation(num1, num2));
+	                	break;
 	                default:
 	                    System.out.println("Invalid operation.");
 	                    break;
@@ -187,5 +190,32 @@ public class Application {
             System.out.println("The input is in degrees, converted to radians: " + radians);
         }
         return Math.tan(angleRadians);
+    }
+    
+    // Permutations function
+    public static double permutation(double total, double select) {
+    	double result = 1;
+    	//Checks if selected items is less than total
+    	if (select > total) {
+    		System.out.println("Error: Selected items exceeds total items");
+    		return -1;
+    	}
+    	//Checks if selected items is a non-negative number and array is not greater than 100
+    	if (select < 0 || total > 100) {
+    		System.out.println("Error: You cannot select a negative amount of items or total items cannot exceed 100");
+    		return -1;
+    	}
+    	
+    	// Base case
+    	if (select == 0) {
+    		return result;
+    	}
+    	
+    	// Recursive case
+    	
+    	result = total * permutation(total-1, select - 1);
+    	
+    	return result;
+    	
     }
 }
