@@ -218,4 +218,33 @@ public class Application {
     	return result;
     	
     }
+    
+    // Permutations Function without Recursion
+    
+    public static double perms(double total, double select) {
+        double result = 1;
+        // Checks if selected items is less than total
+        if (select > total) {
+            System.out.println("Error: Selected items exceeds total items");
+            return -1;
+        }
+        // Checks if selected items is a non-negative number and total is not greater than 100
+        if (select < 0 || total > 100) {
+            System.out.println("Error: You cannot select a negative amount of items or total items cannot exceed 100");
+            return -1;
+        }
+        
+        // Base case
+        if (select == 0) {
+            return result;
+        }
+        
+        // Iterative case
+        for (int i = 0; i < select; i++) {
+            result *= total - i;
+        }
+        
+        return result;
+    }
+
 }
